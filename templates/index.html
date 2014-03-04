@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cimage</title>
+    <link href="/static/bootstrap2/css/bootstrap.min.css" rel="Stylesheet" />
+    <link href="/static/style.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+	<script src="/static/bootstrap2/js/bootstrap.min.js"></script>
+    <!--script scr="project/script.js"></script-->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48119588-1', 'cimg.ru');
+  ga('send', 'pageview');
+
+</script>
+
+    <script type="text/javascript">
+        $(document).ready(function($) {
+            $("#confirmPasswordError").hide();
+            $("#imgChooseError").hide();
+
+            $("#id_confirmPasswordInput").keyup(function(event) {
+                if(!$("#id_confirmPasswordInput").is(":visible"))
+                    return true;
+
+                var password = $("#id_enterPasswordInput").val();
+                var confirm = $(this).val();
+
+                if(password == confirm)
+                {
+                    $("#confirmPasswordError").hide('slow')
+                    return true;
+                } else {
+                    $("#confirmPasswordError").show('slow')
+                    return false;
+                }
+            });
+            $("#id_enterPasswordInput").keyup(function(event) {
+                if($(this).attr('type') == 'password')
+                    return $("#id_confirmPasswordInput").keyup();
+
+                $("#id_confirmPasswordInput").val($(this).val());
+                return true;
+            });
+        });
+    </script>
+</head>
+<body>
+	<!-- Navbar -->
+	<div class="navbar navbar-static-top navbar-inner">
+        <a class="brand" href="/"> Project Cimage<sup>&beta;</sup> </a>
+        <ul class="nav nav-tabs">
+            <li class="divider-vertical"></li>
+            <li><a href="/?type=encrypt"> Encrypt </a></li>
+            <li><a href="/?type=decrypt"> Decrypt </a></li>
+        </ul>
+	</div>
+
+    <div class="block-center well well-large">
+        <br/>
+        {% if error %}
+            <p>
+            <div class="alert alert-error msg-center">
+                Error: {{ error }}
+                <button type="button" class="close" data-dismiss="alert">X</button>
+            </div>
+            </p>
+        {% endif %}
+
+        {% for include_file in include_files %}
+            {% include include_file %}
+        {% endfor %}
+    </div>
+
+    <p>
+    <font style="font-size: 9pt;">
+    <center>
+        last update: 02.03.2014, v0.3.0 <br>
+        made by Ksan, 2014
+    </center>
+    </p>
+    
+
+</body>
+</html>

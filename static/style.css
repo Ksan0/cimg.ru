@@ -1,0 +1,57 @@
+.block-center
+{
+	background-color: #f5f5f5;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.select-difference
+{
+    margin-top: 10px;
+}
+
+.part-left
+{
+	width: 62%;
+}
+
+.part-right
+{
+	width: 33%;
+}
+
+.msg-center
+{
+    width: 95%;
+}
+
+.msg-right
+{
+    margin-right: -10px;
+    width: 28%;
+    height: 13px;
+}
+
+.part-center
+{
+    width: 98.5%;
+}
+
+.move-center
+{
+    text-align: center;
+}
+
+.files-loader-into-msg
+{
+    margin-left: 10px;
+}
+
+
+.encrypt-button
+{
+	margin-left: 30%;
+	width: 40%;
+	height: 70px;
+	font-size: 30px;
+}

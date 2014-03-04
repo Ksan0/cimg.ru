@@ -1,0 +1,4 @@
+*.pyc
+logs/*
+sessions/*
+__init__.py

@@ -1,0 +1,12 @@
+{% if text|length > 0 %}
+    <textarea class="part-center disabled" cols="40" rows="12">{{ text }}</textarea>
+{% endif %}
+
+{% if titles|length > 0 %}
+    Files: <br>
+    {% for title in titles %}
+        <a href="/decrypt?fnum={{ title.0 }}&sid={{ session_id }}">
+            {{ title.1 }}
+        </a> <br/>
+    {% endfor %}
+{% endif %}

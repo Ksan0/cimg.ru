@@ -1,0 +1,41 @@
+<form action="encrypt" method="POST" enctype="multipart/form-data">
+    <div class="alert" style="position: relative; color: grey;">
+        <h4 style="margin-left: 15px;">Small tutorial</h4>
+        <div >
+	    1. Choose image <br>
+            2. Choose difference between your and result image <br> 
+            3. Enter text and/or choose some files <br>
+            4. Enter password <br>
+            5. Press "Encrypt" <br>
+            6. Ok. Now your text and files are hidden in image <br>
+            7. Don't convert image to JPEG!
+        </div>
+    </div>
+    
+    <div class="alert alert-info msg-center" style="position: relative;">
+        Choose <u>IMAGE</u>:
+        {{ input_form.imgChooseInput }}
+        Difference:
+        {{ input_form.imgDifferenceSelect }}
+    </div>
+    
+    <p>
+        {{ input_form.textField }}
+        <div class="alert alert-info msg-center">
+            Choose one or more <u>FILES</u>:
+            {{ input_form.filesChooseInput }}
+        </div>
+    </p> <br/>
+    
+    <div style="position: relative; text-align: center;">
+        {{ input_form.enterPasswordInput }}
+        <div class="alert alert-error msg-right" id="confirmPasswordError" style="position: absolute; right: 10px;">
+            Password and confirm don't match
+        </div>
+        {{ input_form.confirmPasswordInput }}
+    </div>
+    
+    <br>
+    <button class="btn btn-success encrypt-button" id="encryptBtn"> Encrypt </button>
+    {% csrf_token %}
+</form>
